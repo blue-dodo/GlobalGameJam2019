@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private IntVariable turnOfPlayer;
     [SerializeField] private IntVariable turnPhase;
 
-    private void Update()
+    private void OnChangePlayerTurn()
     {
-        
+
     }
 }
