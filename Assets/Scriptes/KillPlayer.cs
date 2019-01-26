@@ -7,15 +7,17 @@ public class KillPlayer : MonoBehaviour
     [SerializeField] private string target;
     [SerializeField] private GameEvent deathEvent;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.CompareTag(target))
+        if(collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("Ground"))
         {
             deathEvent.Raise();
-
-            //Somar Mais um nas mortes
-            //Resetar posição do jogador
-            //Destroir Objeto
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            gameObject.tag = "Ground";
         }
     }
+
+
 }

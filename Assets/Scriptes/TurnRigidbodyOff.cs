@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurnRigidbodyOff : MonoBehaviour
 {
     [SerializeField] private float time = 1;
+
     private void Start()
     {
         if (time < 0)
@@ -19,7 +20,7 @@ public class TurnRigidbodyOff : MonoBehaviour
     IEnumerator TurnOff(float time)
     {
         yield return new WaitForSeconds(time);
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        gameObject.tag = "Ground";
     }
 }
