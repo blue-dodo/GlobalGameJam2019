@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KillPlayer : MonoBehaviour
 {
-    [SerializeField] private string target;
     [SerializeField] private GameEvent deathEvent;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -12,6 +11,7 @@ public class KillPlayer : MonoBehaviour
         if(collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("Ground"))
         {
             deathEvent.Raise();
+            collision.gameObject.GetComponent<RestartPosition>().OnRaise();
         }
         if (collision.gameObject.CompareTag("Ground"))
         {

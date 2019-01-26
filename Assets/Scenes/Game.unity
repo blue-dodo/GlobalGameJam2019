@@ -118,18 +118,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2810364523877089951}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &62522754 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 933989510078388352, guid: de57b332d00c8634d83fa3ea9ba350f8,
-    type: 3}
-  m_PrefabInstance: {fileID: 2810364523877089951}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62522752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2713b6679dadbde40a7349e4623cdc6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &62522760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2810364523837900570, guid: de57b332d00c8634d83fa3ea9ba350f8,
@@ -262,6 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1605503053}
   timer: {fileID: 11400000, guid: c2d29ebc56266184abdf688074072d41, type: 2}
+  turnPhase: {fileID: 11400000, guid: 25fbfdae69913744f98af08e809a3f50, type: 2}
   changePlayer: {fileID: 11400000, guid: 12daeeebc9bb10949b30345f5ac2ba7b, type: 2}
   changePhase: {fileID: 11400000, guid: 2adcbeae8582b234ca19d296813965e2, type: 2}
 --- !u!114 &233822267
@@ -538,12 +527,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 03e1d2734b954df4c81d0272a4182a2f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f96b1debf0eca04c905cd756920339e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.96, y: 2.54}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -557,8 +546,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321353260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.3, y: 13.6, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 19.64, y: 13.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -593,8 +582,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.96, y: 2.54}
-    newSize: {x: 1.96, y: 2.54}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -700,6 +689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810364523837900575, guid: de57b332d00c8634d83fa3ea9ba350f8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2810364523837900570, guid: de57b332d00c8634d83fa3ea9ba350f8,
         type: 3}
@@ -951,18 +945,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 530408107}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1043767321 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 933989510078388352, guid: de57b332d00c8634d83fa3ea9ba350f8,
-    type: 3}
-  m_PrefabInstance: {fileID: 530408107}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1043767313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2713b6679dadbde40a7349e4623cdc6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1261335023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,28 +1044,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 62522754}
-        m_MethodName: OnRaise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1043767321}
-        m_MethodName: OnRaise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1620,6 +1580,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810364523837900575, guid: de57b332d00c8634d83fa3ea9ba350f8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2810364523837900570, guid: de57b332d00c8634d83fa3ea9ba350f8,
         type: 3}

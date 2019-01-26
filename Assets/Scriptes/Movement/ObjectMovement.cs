@@ -23,7 +23,7 @@ public class ObjectMovement : MonoBehaviour
     private void Update()
     {
         rig.MovePosition(new Vector2(transform.localPosition.x + Input.GetAxis("Horizontal") * moveSpeed, transform.localPosition.y + Input.GetAxis("Vertical") * moveSpeed));
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Jump"))
         {
             Instantiate(randomObject, transform.localPosition,transform.rotation);
             Destroy(gameObject);

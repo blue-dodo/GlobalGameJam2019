@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
         turnOfPlayer.value = player;
         Player1.GetComponent<PlayerMovement>().enabled = false;
         Player2.GetComponent<PlayerMovement>().enabled = false;
+        StopPlayerMovement(Player1);
+        StopPlayerMovement(Player2);
 
         //se tiver elimina o outro e cria outro
         GameObject aux = GameObject.FindWithTag("Present");
@@ -39,6 +41,10 @@ public class GameManager : MonoBehaviour
         present.GetComponent<ObjectMovement>().randomObject = randomList[random];
         Instantiate(present);
 
+    }
+    private void StopPlayerMovement(GameObject player)
+    {
+        player.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, player.GetComponent<Rigidbody2D>().velocity.y);
     }
 
     public void OnChangeTurnPhase()
