@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCollisionHandler : MonoBehaviour
+public class KillPlayer : MonoBehaviour
 {
     [SerializeField] private string target;
     [SerializeField] private GameEvent deathEvent;

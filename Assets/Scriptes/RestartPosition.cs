@@ -2,14 +2,17 @@
 
 public class RestartPosition : MonoBehaviour
 {
-    private Vector3 startPosition;
+    private Transform startTransform;
 
     private void Start()
     {
-        startPosition = transform.position;
+        startTransform = transform;
     }
-    private void OnRaise()
+
+    public void OnRaise()
     {
-        GetComponent<Transform>().position = startPosition;
+        GetComponent<Transform>().localPosition = startTransform.localPosition;
+        GetComponent<Transform>().localScale = startTransform.localScale;
+        GetComponent<Transform>().localRotation = startTransform.localRotation;
     }
 }
