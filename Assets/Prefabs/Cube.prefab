@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5151172139138514855}
   - component: {fileID: 5151172139138514872}
   - component: {fileID: 5874490072120953951}
+  - component: {fileID: 2041659390582502108}
+  - component: {fileID: 7291286559887394044}
   m_Layer: 8
   m_Name: Cube
   m_TagString: Wall
@@ -141,3 +143,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a17a15839453640b465b5db5573b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 1
+--- !u!114 &2041659390582502108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5151172139138514873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad36ef881341cd42be950352528fe9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: Player
+--- !u!114 &7291286559887394044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5151172139138514873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741a97b01ce58f44188fe194c436cdd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: Player
+  deathEvent: {fileID: 11400000, guid: 85f1e01eea3ac23449a298bd87a46ef7, type: 2}

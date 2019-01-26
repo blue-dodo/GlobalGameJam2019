@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3360734430541026978}
   - component: {fileID: 2042744303080992118}
   - component: {fileID: 1020747005895759332}
+  - component: {fileID: 4630877722845467933}
+  - component: {fileID: 7466707997589990220}
   m_Layer: 8
   m_Name: Ball
   m_TagString: Wall
@@ -131,3 +133,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a17a15839453640b465b5db5573b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 1
+--- !u!114 &4630877722845467933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4993490358441335167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad36ef881341cd42be950352528fe9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: Player
+--- !u!114 &7466707997589990220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4993490358441335167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741a97b01ce58f44188fe194c436cdd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: Player
+  deathEvent: {fileID: 11400000, guid: 85f1e01eea3ac23449a298bd87a46ef7, type: 2}
