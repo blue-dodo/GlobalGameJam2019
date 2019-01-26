@@ -52,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
          //   canJump = false;
             return jumpSpeed;
         }
-
         return rigidBody.velocity.y;
     }
 

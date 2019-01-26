@@ -23,9 +23,10 @@ public class TimerSystem : MonoBehaviour
             changePlayer.Raise();
             startTimer = Time.time;
         }
+
         if (Input.GetButtonDown("Fire1"))
             changePhase.Raise();
 
-        text.SetText("Time: " + (int)( (startTimer + timer.value) - Time.time));
+        text.SetText("" + (int)( (startTimer + timer.value) - Time.time));
     }
 }
