@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Wall
+  - Present
+  - Flag
   layers:
   - Default
   - TransparentFX

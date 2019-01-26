@@ -14,7 +14,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement", order = 0)]
     [SerializeField] private float runSpeed = 5f;
     [SerializeField] private float jumpSpeed = 5f;
-    [SerializeField] private bool canJump = true;
+    [SerializeField] private float wallRunSpeed = 5f;
+    private bool isGrounded = true;
+    private bool doubleJump = true;
+    private bool canWallJump = false;
 
     private Rigidbody2D rigidBody;
     private BoxCollider2D feet;
@@ -32,11 +35,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandheldMovement()
     {
-        float h = Run();
-        float v = Jump();
-        //WallJump();
 
-        rigidBody.velocity = new Vector2(h, v);
+        if(!CanWallJump())
+        {
+            float h = Run();
+            float v = Jump();
+
+            rigidBody.velocity = new Vector2(h, v);
+        }
+        else
+        {
+            float v = Jump();
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                rigidBody.velocity = new Vector2( -transform.localScale.x * wallRunSpeed, v);
+        }
+
         FlipSprite();
     }
 
@@ -44,26 +57,28 @@ public class PlayerMovement : MonoBehaviour
 
     private float Jump()
     {
-        if (!feet.IsTouchingLayers(LayerMask.GetMask("Ground")) )//&& !canJump)
-            return rigidBody.velocity.y;
+        isGrounded = feet.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        if(isGrounded)
+            doubleJump = true;
 
-        if(Input.GetAxis("Vertical") > Mathf.Epsilon)
+        if(Input.GetKeyDown(KeyCode.UpArrow) && (isGrounded || doubleJump || canWallJump))
         {
-         //   canJump = false;
+            if(!isGrounded)
+                doubleJump = false;
             return jumpSpeed;
         }
         return rigidBody.velocity.y;
     }
 
-    private void WallJump()
+    private bool CanWallJump()
     {
-        RaycastHit2D ray = Physics2D.Linecast(transform.localPosition, new Vector2(transform.localPosition.x + Mathf.Sign(transform.localScale.x), transform.localPosition.y), LayerMask.GetMask("Wall"));
+        RaycastHit2D ray = Physics2D.Linecast(transform.localPosition, new Vector2(transform.localPosition.x + 2.05f * Mathf.Sign(transform.localScale.x), transform.localPosition.y), LayerMask.GetMask("Wall", "Ground"));
+        Debug.DrawLine(transform.localPosition, new Vector2(transform.localPosition.x + 2.05f * Mathf.Sign(transform.localScale.x), transform.localPosition.y));
 
         if (ray.collider != null)
             if (ray.collider.tag == "Wall")
-                canJump = true;
-
-        Debug.DrawLine(transform.localPosition, new Vector2(transform.localPosition.x + Mathf.Sign(transform.localScale.x), transform.localPosition.y));
+                return true;
+        return false;
     }
 
     private void FlipSprite()

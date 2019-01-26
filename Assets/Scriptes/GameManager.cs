@@ -28,9 +28,17 @@ public class GameManager : MonoBehaviour
         turnOfPlayer.value = player;
         Player1.GetComponent<PlayerMovement>().enabled = false;
         Player2.GetComponent<PlayerMovement>().enabled = false;
-        int random = Random.Range(0, randomList.Count - 1);
-        present.GetComponent<ObjectMovement>().randomObject = randomList[(int)random];
+
+        //se tiver elimina o outro e cria outro
+        GameObject aux = GameObject.FindWithTag("Present");
+        if(aux != null)
+            Destroy(aux);
+        
+        //se não tem um presente na cena cria outro
+        int random = Random.Range(0, randomList.Count);
+        present.GetComponent<ObjectMovement>().randomObject = randomList[random];
         Instantiate(present);
+
     }
 
     public void OnChangeTurnPhase()
