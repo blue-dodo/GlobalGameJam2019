@@ -24,7 +24,10 @@ public class TimerSystem : MonoBehaviour
             changePlayer.Raise();
             startTimer = Time.time;
         }
-            
+        if (Input.GetButtonDown("Jump") && turnPhase.value == 2)
+        {
+            startTimer = timer.value- Time.time;
+        }
         if (Input.GetButtonDown("Jump") && turnPhase.value == 1)
             changePhase.Raise();
 

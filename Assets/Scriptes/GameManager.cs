@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> randomList;
-    [SerializeField] private GameObject present;
+    [SerializeField] private GameObject present1;
+    [SerializeField] private GameObject present2;
     [SerializeField] private GameObject Player1;
     [SerializeField] private GameObject Player2;
     [SerializeField] private IntVariable turnTime;
@@ -38,10 +39,19 @@ public class GameManager : MonoBehaviour
         
         //se não tem um presente na cena cria outro
         int random = Random.Range(0, randomList.Count);
-        present.GetComponent<ObjectMovement>().randomObject = randomList[random];
-        Instantiate(present);
+        if(player <= 1)
+        {
 
+            present1.GetComponent<ObjectMovement>().randomObject = randomList[random];
+            Instantiate(present1);
+        }
+        else
+        {
+            present2.GetComponent<ObjectMovement>().randomObject = randomList[random];
+            Instantiate(present2);
+        }
     }
+
     private void StopPlayerMovement(GameObject player)
     {
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, player.GetComponent<Rigidbody2D>().velocity.y);
@@ -49,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void OnChangeTurnPhase()
     {
+        Debug.Log("asdasdasd");
         if (turnPhase.value <= 1)
         {
             turnPhase.value = 2;

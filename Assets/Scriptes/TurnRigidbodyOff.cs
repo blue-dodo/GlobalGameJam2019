@@ -14,7 +14,7 @@ public class TurnRigidbodyOff : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        StartCoroutine(TurnOff(time));
+       // StartCoroutine(TurnOff(time));
     }
 
     IEnumerator TurnOff(float time)

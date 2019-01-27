@@ -5,6 +5,7 @@ using UnityEngine;
 public class KillPlayer : MonoBehaviour
 {
     [SerializeField] private GameEvent deathEvent;
+    [SerializeField] private IntVariable playerTurn;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -12,12 +13,11 @@ public class KillPlayer : MonoBehaviour
         {
             deathEvent.Raise();
             collision.gameObject.GetComponent<RestartPosition>().OnRaise();
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         if (collision.gameObject.CompareTag("Ground"))
         {
             gameObject.tag = "Ground";
         }
     }
-
-
 }

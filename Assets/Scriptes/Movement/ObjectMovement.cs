@@ -25,9 +25,17 @@ public class ObjectMovement : MonoBehaviour
         rig.MovePosition(new Vector2(transform.localPosition.x + Input.GetAxis("Horizontal") * moveSpeed, transform.localPosition.y + Input.GetAxis("Vertical") * moveSpeed));
         if (Input.GetButtonDown("Jump"))
         {
-            Instantiate(randomObject, transform.localPosition,transform.rotation);
+            Instantiate(randomObject, new Vector2(transform.localPosition.x, transform.localPosition.y), Quaternion.Euler(GetRandomRotation()));
             Destroy(gameObject);
         }
+    }
+
+    private Vector3 GetRandomRotation()
+    {
+        Vector3 rotation = new Vector3(0f, 0f, 0f);
+
+        rotation.z = Random.Range(0, 360);
+        return rotation;
     }
 
 }

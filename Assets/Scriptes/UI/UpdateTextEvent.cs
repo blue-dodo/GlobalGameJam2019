@@ -7,6 +7,6 @@ public class UpdateTextEvent : MonoBehaviour
 
     public void OnRaise(IntVariable variable)
     {
-        deathCounter.SetText("Deaths: " + variable.value);
+        deathCounter.SetText("" + variable.value);
     }
 }

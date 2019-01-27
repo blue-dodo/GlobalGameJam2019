@@ -46,8 +46,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             float v = Jump();
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-                rigidBody.velocity = new Vector2( -transform.localScale.x * wallRunSpeed, v);
+            if (Input.GetButton("Up"))
+                rigidBody.velocity = new Vector2( 0f, v);
         }
 
         FlipSprite();
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         if(isGrounded)
             doubleJump = true;
 
-        if(Input.GetKeyDown(KeyCode.UpArrow) && (isGrounded || doubleJump || canWallJump))
+        if(Input.GetButtonDown("Up") && (isGrounded || doubleJump || canWallJump))
         {
             if(!isGrounded)
                 doubleJump = false;
