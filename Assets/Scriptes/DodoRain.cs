@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DodoRain : MonoBehaviour
 {
-    [SerializeField] private GameObject dodo;
+    [SerializeField] private List<GameObject> dodos;
     [SerializeField] private float time;
     private float startTime;
 
@@ -17,11 +17,12 @@ public class DodoRain : MonoBehaviour
     {
         if ((Time.time - startTime) >= time)
         {
+            int random = Random.Range(0, dodos.Count);
             startTime = Time.time;
-            dodo.transform.localPosition = GetRandomPosition();
-            dodo.transform.localEulerAngles = GetRandomRotation();
+            dodos[random].transform.localPosition = GetRandomPosition();
+            dodos[random].transform.localEulerAngles = GetRandomRotation();
 
-            StartCoroutine(CreateObject(dodo, time));
+            StartCoroutine(CreateObject(dodos[random], time));
 
         }
     }
