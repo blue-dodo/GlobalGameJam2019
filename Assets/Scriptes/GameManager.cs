@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
 
     public void OnChangeTurnPhase()
     {
-        Debug.Log("asdasdasd");
         if (turnPhase.value <= 1)
         {
             turnPhase.value = 2;
